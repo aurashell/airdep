@@ -3,6 +3,8 @@ package main
 import (
 	"encoding/json"
 	"os"
+	"path"
+	"path/filepath"
 
 	log "github.com/sirupsen/logrus"
 )
@@ -20,8 +22,11 @@ func RepositoryFromInfo(i ManifestRepositoryInfo) Repository {
 
 	var data map[string]interface{}
 
+	var dir string
+
 	if i.SrcType == "file" {
 		file, err := os.Open(i.SrcValue)
+		dir = filepath.Dir(i.SrcValue)
 		defer file.Close()
 		if err != nil {
 			log.Panic(err)
@@ -40,8 +45,8 @@ func RepositoryFromInfo(i ManifestRepositoryInfo) Repository {
 	if pfm, ok := data["package-files"]; ok {
 		pfm := pfm.(map[string]interface{})
 		for k, v := range pfm {
-			v := v.(string)
-			pf := LoadPackageFile(v)
+			v := path.Join(dir, v.(string))
+			pf := LoadPackageFile(v, i.Values)
 			packageFiles[k] = pf
 		}
 	} else {

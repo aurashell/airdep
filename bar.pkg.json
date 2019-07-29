@@ -4,7 +4,7 @@
         "source": {
             "type": "git",
             "repository": "https://github.com/bar/bar",
-            "revision": "{version}"
+            "revision": "0.4.1"
         },
         "tool": "cmake",
         "configure-flags": "-DCMAKE_BUILD_TYPE={cmake-profile}"

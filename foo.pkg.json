@@ -3,7 +3,7 @@
         "source": {
             "type": "git",
             "repository": "https://github.com/foo/foo",
-            "revision": "{version}"
+            "revision": "0.1.0"
         },
         "tool": "cmake",
         "configure-flags": "-DCMAKE_BUILD_TYPE={cmake-profile}"

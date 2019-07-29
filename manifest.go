@@ -13,7 +13,7 @@ type ManifestRepositoryInfo struct {
 	SrcType  string
 	SrcValue string
 
-	Values map[string]string
+	Values map[string]interface{}
 }
 
 // Manifest - decribes repositories and packages we want to use.
@@ -56,13 +56,14 @@ func ParseManifest(filename string) Manifest {
 	if repositories, ok := data["repositories"]; ok {
 		repositories := repositories.(map[string]interface{})
 		for reponame, repo := range repositories {
-			var r = ManifestRepositoryInfo{
-				Values: map[string]string{},
-			}
 
 			repo := repo.([]interface{})
 			repopath := repo[0].(map[string]interface{})
 			repovals := repo[1].(map[string]interface{})
+
+			var r = ManifestRepositoryInfo{
+				Values: repovals,
+			}
 
 			if _, ok := repopath["file"]; ok {
 				r.SrcType = "file"
@@ -240,4 +241,6 @@ func (m *Manifest) Dump() {
 	if err != nil {
 		log.Panic(err)
 	}
+
+	log.Info("Generated airbuild.json")
 }

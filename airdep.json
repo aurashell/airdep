@@ -4,13 +4,13 @@
         "foo": [
             {"file": "foo.json"},
             {
-                "cmake-profile": "{cmake-profile}"
+                "cmake-profile": "Debug"
             }
         ],
         "bar": [
             {"file": "bar.json"},
             {
-                "cmake-profile": "{cmake-profile}"
+                "cmake-profile": "Debug"
             }
         ]
     }
