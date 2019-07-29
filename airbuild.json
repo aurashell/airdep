@@ -1,0 +1,28 @@
+{
+  "packages": {
+    "bar": {
+      "configure-flags": "-DCMAKE_BUILD_TYPE={cmake-profile}",
+      "source": {
+        "repository": "https://github.com/bar/bar",
+        "revision": "{version}",
+        "type": "git"
+      },
+      "tool": "cmake",
+      "wants": [
+        "foo"
+      ]
+    },
+    "foo": {
+      "configure-flags": "-DCMAKE_BUILD_TYPE={cmake-profile}",
+      "source": {
+        "repository": "https://github.com/foo/foo",
+        "revision": "{version}",
+        "type": "git"
+      },
+      "tool": "cmake"
+    }
+  },
+  "wants": [
+    "bar"
+  ]
+}

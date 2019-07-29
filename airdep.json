@@ -1,0 +1,17 @@
+{
+    "wants": {"bar": "0.4.1"},
+    "repositories": {
+        "foo": [
+            {"file": "foo.json"},
+            {
+                "cmake-profile": "{cmake-profile}"
+            }
+        ],
+        "bar": [
+            {"file": "bar.json"},
+            {
+                "cmake-profile": "{cmake-profile}"
+            }
+        ]
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "variables": ["cmake-profile"],
+    "package-files": {
+        "foo": "foo.pkg.json"
+    }
+}

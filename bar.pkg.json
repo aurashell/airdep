@@ -1,0 +1,12 @@
+{
+    "0.4.1": {
+        "wants": {"foo": ">= 0.1.0"},
+        "source": {
+            "type": "git",
+            "repository": "https://github.com/bar/bar",
+            "revision": "{version}"
+        },
+        "tool": "cmake",
+        "configure-flags": "-DCMAKE_BUILD_TYPE={cmake-profile}"
+    }
+}
